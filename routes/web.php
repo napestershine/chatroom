@@ -15,6 +15,7 @@ Route::get('/messages', function () {
 })->middleware('auth');
 
 Route::post('/messages', function () {
+    // Store the new message
     $user = Auth::user();
 
     $message = $user->messages()->create([

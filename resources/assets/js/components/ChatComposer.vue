@@ -34,6 +34,7 @@
 
     .chat-composer input {
         flex: 1 auto;
+        padding: .5rem 1rem;
     }
 
     .chat-composer button {
