@@ -12,5 +12,6 @@ yarn-error.log
 .env
 public/css/*.css
 public/js/*.js
+public/fonts/*
 public/mix-manifest.json
 .env.dusk.*
