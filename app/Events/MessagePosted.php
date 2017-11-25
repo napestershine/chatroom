@@ -17,11 +17,15 @@ class MessagePosted implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * Message
+     *
      * @var Message
      */
     public $message;
 
     /**
+     * User
+     *
      * @var User
      */
     public $user;

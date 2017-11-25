@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Chatroom
-                        <span class="badge">@{{ usersInRoom.length }}</span>
+                        <span class="badge pull-right">@{{ usersInRoom.length }}</span>
                     </div>
 
                     <chat-log :messages="messages"></chat-log>
