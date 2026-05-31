@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Models\Message;
 use App\Events\MessagePosted;
 
 Route::get('/', function () {
@@ -11,18 +15,15 @@ Route::get('/chat', function () {
 })->middleware('auth');
 
 Route::get('/messages', function () {
-    return \App\Message::with('user')->get();
+    return Message::with('user')->get();
 })->middleware('auth');
 
 Route::post('/messages', function () {
-    // Store the new message
     $user = Auth::user();
 
     $message = $user->messages()->create([
         'message' => request()->get('message')
     ]);
-
-    // Announce a new message has been posted
 
     broadcast(new MessagePosted($message, $user))->toOthers();
 
@@ -31,4 +32,4 @@ Route::post('/messages', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
